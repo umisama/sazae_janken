@@ -115,7 +115,7 @@ func (g *Gene) Hand(history []Hand) Hand {
 
 	var index int
 	for _, v := range history {
-		index += index*3 + int(v)
+		index = index*3 + int(v)
 	}
 	return g.decision[index]
 }
@@ -266,7 +266,7 @@ func init() {
 
 func decisionlength() int {
 	f64HistLen := float64(HISTORY_LENGTH)
-	return int(math.Pow(f64HistLen, f64HistLen*2))
+	return int(math.Pow(3.0, f64HistLen))
 }
 
 func mustParseTime(str string) time.Time {
